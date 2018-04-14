@@ -1,0 +1,25 @@
+#!/bin/bash
+str="$@"
+
+if [[ "$str" == $NULL || "$#" != 1 ]]; then
+	echo "usage: apyfile [filename]"
+	echo "       apyfile [-help]"
+	exit 
+fi
+
+if [[ "$str" == "-help" ]]; then
+	echo "Creates a new Python file"
+	echo "usage: apyfile [filename]"
+	echo "       apyfile [-help]"
+	exit 
+fi
+
+if [[ "$str" != *".py" ]]; then
+	str="$str.py"
+fi
+
+echo -e "#!/usr/bin/python3\n" >> $str
+
+chmod a+x $str
+
+vi -c "set tabstop=4 shiftwidth=4 expandtab" + $str

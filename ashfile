@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# v 1.0
+# April 9, 2018
+# ashfile - a shell file
+# Creates a Bash script, makes it executable, and opens it
+# Created by Arik Rosenthal @aDENTinTIME
+
+str="$@"
+
+if [[ "$str" == $NULL || "$#" != 1 ]]; then
+	echo "usage: ashfile [filename]"
+	echo "       ashfile [-help]"
+	exit 
+fi
+
+if [[ "$str" == "-help" ]]; then
+	echo "Creates a new Bash script file"
+	echo "usage: ashfile [filename]"
+	echo "       ashfile [-help]"
+	exit 
+fi
+
+echo -e "#!/bin/bash\n" >> $str
+
+chmod a+x $str
+
+vi $str

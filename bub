@@ -1,0 +1,14 @@
+#!/bin/bash
+git status
+while true; do
+  read -p "Commit?" yn
+    case $yn in
+        [Yy]* ) make install; break;;
+        [Nn]* ) exit;;
+        * ) echo "Human says yes or no?";;
+    esac
+done
+git add --all
+str="$@"
+git commit -m "$str"
+git push

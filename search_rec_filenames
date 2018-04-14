@@ -1,0 +1,3 @@
+#!/bin/bash
+str="$@"
+find * | grep --colour=always -i $str

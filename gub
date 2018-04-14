@@ -1,0 +1,19 @@
+#!/bin/bash
+git status
+#pep8 *.py
+#if [[ $? > 0 ]]; then
+#	echo NO
+#fi
+echo -e "\033[1;35mCommit?\033[0m"
+while true; do
+  read -p "" yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Human says yes or no?";;
+    esac
+done
+git add --all
+str="$@"
+git commit -m "$str"
+git push origin master

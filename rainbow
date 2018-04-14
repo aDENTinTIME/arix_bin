@@ -1,0 +1,3 @@
+#!/bin/bash
+str="$@"
+rainbow_run "$str"

@@ -1,0 +1,4 @@
+#!/bin/bash
+str="./$(ls -1t | head -1)"
+echo $str
+cd $str

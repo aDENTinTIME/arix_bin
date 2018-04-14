@@ -1,0 +1,23 @@
+#!/bin/bash
+str="$@"
+
+if [[ "$str" == $NULL || "$#" != 1 ]]; then
+	echo "usage: acfile [filename]"
+	echo "       acfile [-help]"
+	exit 
+fi
+
+if [[ "$str" == "-help" ]]; then
+	echo "Creates a new C file"
+	echo "usage: acfile [filename]"
+	echo "       acfile [-help]"
+	exit 
+fi
+
+if [[ "$str" != *".c" ]]; then
+	str="$str.c"
+fi
+
+echo -e "#include \"head.h\"\n\nint main(void)\n{\n\n\treturn (0);\n}" >> $str
+
+vi $str
